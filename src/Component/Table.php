@@ -4,6 +4,7 @@ namespace JasperFW\QueryBuilder\Component;
 
 use JasperFW\DataAccess\DAO;
 use JasperFW\QueryBuilder\Query;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Class Table
@@ -14,18 +15,18 @@ use JasperFW\QueryBuilder\Query;
  */
 class Table
 {
-    protected $table;
-    protected $alias;
-    protected $join;
-    protected $conditions;
+    protected string $table;
+    protected ?string $alias;
+    protected ?string $join;
+    protected ?string $conditions;
 
     /**
      * Column constructor.
      *
-     * @param string $column     The column name
-     * @param string $alias      The alias for the column used in the query
-     * @param string $join       The type of join
-     * @param string $conditions The matching conditions
+     * @param string      $column     The column name
+     * @param string|null $alias      The alias for the column used in the query
+     * @param string|null $join       The type of join
+     * @param string|null $conditions The matching conditions
      */
     public function __construct(string $column, ?string $alias, ?string $join, ?string $conditions)
     {
@@ -62,7 +63,7 @@ class Table
     /**
      * @return string|null
      */
-    public function getConditions()
+    public function getConditions(): ?string
     {
         return $this->conditions;
     }
@@ -75,7 +76,7 @@ class Table
      *
      * @return string The snippet for this column
      */
-    public function generateSnippet(int $queryType, DAO $databaseConnection): string
+    #[Pure] public function generateSnippet(int $queryType, DAO $databaseConnection): string
     {
         switch ($queryType) {
             case Query::SELECT:

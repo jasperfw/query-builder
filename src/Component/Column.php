@@ -15,11 +15,11 @@ use JasperFW\QueryBuilder\Query;
 class Column
 {
     /** @var string The proper name of the column */
-    protected $name;
+    protected string $name;
     /** @var string The nickname of the column */
-    protected $alias;
+    protected string $alias;
     /** @var string The name of the associated parameter in the parameters array */
-    protected $paramName;
+    protected string $paramName;
 
     /**
      * Column constructor.
