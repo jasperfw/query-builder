@@ -29,8 +29,8 @@ class Query
 
     /** @var int The type of query. This can be changed */
     protected int $queryType;
-    /** @var string The template is the base query. This can be set manually, or by setting a query type. */
-    protected string $template;
+    /** @var string|null The template is the base query. This can be set manually, or by setting a query type. */
+    protected ?string $template = null;
     /** @var array The parameters that will be used to fill in the query as needed. */
     protected array $parameters = [];
     /** @var Table[] The tables that will be queried. */
