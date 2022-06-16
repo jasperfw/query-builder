@@ -27,8 +27,8 @@ class Query
     const UPDATE = 3;
     const DELETE = 4;
 
-    /** @var int The type of query. This can be changed */
-    protected int $queryType;
+    /** @var int|null The type of query. This can be changed */
+    protected ?int $queryType = null;
     /** @var string|null The template is the base query. This can be set manually, or by setting a query type. */
     protected ?string $template = null;
     /** @var array The parameters that will be used to fill in the query as needed. */
